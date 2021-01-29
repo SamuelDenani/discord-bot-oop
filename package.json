@@ -1,0 +1,17 @@
+{
+  "name": "discord-bot",
+  "version": "0.0.1",
+  "description": "A simple Discord bot to use with friends.",
+  "main": "main.ts",
+  "repository": "https://github.com/SamuelDenani/discord-bot",
+  "author": "Samuel Denani",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/index.ts"
+  },
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "ts-node-dev": "^1.1.1",
+    "typescript": "^4.1.3"
+  }
+}
