@@ -35,14 +35,14 @@ export default class Config implements ConfigInterface {
         Object.keys(process.env)
             .filter(envKey => this.JSON_KEYS.includes(camelCase(envKey)))
             .forEach(envKey => {
-                let envValue = [process.env[envKey]!];
+                let envValue = process.env[envKey]!;
                 const configKey = camelCase(envKey);
 
                 this.set(configKey, envValue);
             })
     }
 
-    private set (field: string, value: string[]) {
+    private set (field: string, value: string) {
         if (!this.JSON_KEYS.includes(field)) return undefined;
 
         let newValue: ConfigValue;
