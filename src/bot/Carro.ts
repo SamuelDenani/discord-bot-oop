@@ -32,7 +32,6 @@ export default class Carro extends Client {
         if (!this.user) return;
 
         this.user.setActivity('Estou online!');
-        console.log('--------BOT FUNCIONANDO--------')
     }
 
     private onMessage (message: Message) {
