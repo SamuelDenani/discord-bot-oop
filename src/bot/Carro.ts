@@ -20,7 +20,7 @@ export default class Carro extends Client {
     }
 
     public start() {        
-        this.login(this.config.index);
+        this.login(this.config.token);
     }
 
     private addEventListeners () {
