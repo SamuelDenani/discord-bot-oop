@@ -1,4 +1,3 @@
-import { MessageManager } from 'discord.js';
 import { Message } from 'discord.js';
 
 declare module 'discord.js' {

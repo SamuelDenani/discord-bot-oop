@@ -1,24 +1,26 @@
 import { Client, Message } from 'discord.js';
+import Config from '../config/Config';
 
 import MessageHandler from './MessageHandler';
 
-import configs from '../../configs/config.json';
-
 export default class Carro extends Client {
+    private readonly config: Config;
     private readonly messageHandler: MessageHandler;
 
     constructor (
+        config: Config,
         messageHandler: MessageHandler
     ) {
         super();
 
         this.messageHandler = messageHandler;
+        this.config = config;
         
         this.addEventListeners();
     }
 
-    public start() {
-        this.login(configs.token);
+    public start() {        
+        this.login(this.config.token);
     }
 
     private addEventListeners () {

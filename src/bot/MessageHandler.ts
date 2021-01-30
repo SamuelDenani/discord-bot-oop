@@ -1,8 +1,8 @@
 import { Message } from "discord.js";
 
 import '../discord/Message';
+import { config } from '../util/Container'
 import CommandCollection from "./CommandCollection";
-import configs from '../../configs/config.json';
 
 export default class MessageHandler {
     private readonly commands: CommandCollection;
@@ -15,7 +15,7 @@ export default class MessageHandler {
         if (!this.isValidMessage(message)) return;
 
         const messageToHandle = message;
-        messageToHandle.content = message.content.substring(configs.prefix.length);
+        messageToHandle.content = message.content.substring(config.prefix.length);
 
         this.execute(messageToHandle);
     }
@@ -24,7 +24,7 @@ export default class MessageHandler {
         return (
             !message.author.bot &&
             !message.isDirectMessage() &&
-            message.hasPrefix(configs.prefix)
+            message.hasPrefix(config.prefix)
         )
     }
 
