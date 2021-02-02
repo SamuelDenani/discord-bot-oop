@@ -1,5 +1,4 @@
 import fs from 'fs';
-import camelCase from 'lodash/camelCase';
 import path from 'path';
 
 import ConfigInterface, { ConfigValue } from './ConfigInterface';
@@ -20,6 +19,7 @@ export default class Config implements ConfigInterface {
     }
 
     private initialize () {
+        
         if (!fs.existsSync(this.CONFIG_PATH)) {
             this.initializeFromEnvitonmentVariables();
         } else {
@@ -34,12 +34,11 @@ export default class Config implements ConfigInterface {
     
     private initializeFromEnvitonmentVariables () {
         Object.keys(process.env)
-            .filter(envKey => this.JSON_KEYS.includes(camelCase(envKey)))
+            .filter(envKey => this.JSON_KEYS.includes(envKey))
             .forEach(envKey => {
                 let envValue = process.env[envKey]!;
-                const configKey = camelCase(envKey);
 
-                this.set(configKey, envValue);
+                this.set(envKey, envValue);
             })
     }
 
