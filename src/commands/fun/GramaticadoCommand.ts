@@ -1,6 +1,8 @@
 import { Message } from 'discord.js';
+import redis from 'redis';
 
 import Command from '../base/Command';
+import Container, { db } from '../../util/Container';
 
 export class GramaticadoCommand extends Command {
     public readonly triggers = ['gramaticado', 'gram'];
@@ -11,12 +13,19 @@ export class GramaticadoCommand extends Command {
         if (!message.member) return;
 
         if (params.length > this.numberOfParameters) {
-            message.channel.send(this.usage);
-            return;
+            return message.reply(this.usage);
         }
 
         const [ member ] = params;
 
-        message.channel.send(`O ${member} foi gramaticado 1 vez. <:SAMUW:745829768934588503>`)
+        const user = message.mentions.members?.first()?.user
+
+        if (!user) return message.reply('não consegui achar esse usuário! D:')
+        
+        db.incr(`${user.id}:gramaticado`, (err, reply) => {
+            if (!reply) return message.reply('tive um erro no banco de dados :/')
+
+            message.channel.send(`O ${member} foi gramaticado ${reply > 1 ? `${reply} vezes` : `${reply} vez`}. <:SAMUW:745829768934588503>`)
+        })
     }
 }

@@ -7,9 +7,10 @@ import ConfigInterface, { ConfigValue } from './ConfigInterface';
 export default class Config implements ConfigInterface { 
     public prefix!: string;
     public token!: string;
+    public REDIS_URL!: string;
 
     private readonly CONFIG_PATH = path.join(process.cwd(), 'configs', 'configs.json');
-    private readonly JSON_KEYS = ['prefix', 'token'];
+    private readonly JSON_KEYS = ['prefix', 'token', 'REDIS_URL'];
 
     // I need to study more about this
     [index: string]: any;

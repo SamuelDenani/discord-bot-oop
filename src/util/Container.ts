@@ -2,6 +2,7 @@ import CarroBot from '../bot/Carro';
 import MessageHandler from '../bot/MessageHandler';
 import CommandCollection from '../bot/CommandCollection';
 import Config from '../config/Config';
+import DataBase from '../database/DataBase';
 
 import {
     PingCommand
@@ -21,6 +22,8 @@ const commands = [
 
 export const config = new Config(); 
 
+export const db = new DataBase(config.REDIS_URL);
+
 const commandCollection = new CommandCollection(commands);
 const messageHandler = new MessageHandler(commandCollection);
 const carroBot = new CarroBot(config, messageHandler);
@@ -34,3 +37,5 @@ export default {
     config,
     carroBot
 } as CarroBotContainer;
+
+

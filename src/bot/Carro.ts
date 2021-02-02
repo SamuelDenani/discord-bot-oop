@@ -1,15 +1,14 @@
 import { Client, Message } from 'discord.js';
+
 import Config from '../config/Config';
-
 import MessageHandler from './MessageHandler';
-
 export default class Carro extends Client {
     private readonly config: Config;
     private readonly messageHandler: MessageHandler;
 
     constructor (
         config: Config,
-        messageHandler: MessageHandler
+        messageHandler: MessageHandler,
     ) {
         super();
 
@@ -31,7 +30,12 @@ export default class Carro extends Client {
     private onReady () {
         if (!this.user) return;
 
-        this.user.setActivity('Estou online!');
+        this.user.setPresence({
+            activity: {
+                name: 'Carros 2!',
+                type: 'WATCHING'
+            }
+        });
     }
 
     private onMessage (message: Message) {
