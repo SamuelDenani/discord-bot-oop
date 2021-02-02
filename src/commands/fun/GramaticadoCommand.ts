@@ -1,8 +1,7 @@
 import { Message } from 'discord.js';
-import redis from 'redis';
 
 import Command from '../base/Command';
-import Container, { db } from '../../util/Container';
+import { db } from '../../util/Container';
 
 export class GramaticadoCommand extends Command {
     public readonly triggers = ['gramaticado', 'gram'];
