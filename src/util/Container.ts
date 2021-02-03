@@ -5,6 +5,7 @@ import Config from '../config/Config';
 import DataBase from '../database/DataBase';
 
 import {
+    HelpCommand,
     PingCommand
 } from '../commands/help';
 
@@ -14,6 +15,7 @@ import {
 
 const commands = [
     // Help Commands
+    new HelpCommand,
     new PingCommand,
 
     // Fun Commands
@@ -24,7 +26,7 @@ export const config = new Config();
 
 export const db = new DataBase(config.REDIS_URL);
 
-const commandCollection = new CommandCollection(commands);
+export const commandCollection = new CommandCollection(commands);
 const messageHandler = new MessageHandler(commandCollection);
 const carroBot = new CarroBot(config, messageHandler);
 

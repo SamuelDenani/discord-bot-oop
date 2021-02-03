@@ -6,7 +6,7 @@ import { db } from '../../util/Container';
 export class GramaticadoCommand extends Command {
     public readonly triggers = ['gramaticado', 'gram'];
     public readonly numberOfParameters = 1;
-    public usage = 'Use o comando assim: **;gramaticado @<member>**'
+    public readonly usage = 'Use o comando assim: **;gramaticado @<member>**'
 
     public run (message: Message, params: string[]) {
         if (!message.member) return;
