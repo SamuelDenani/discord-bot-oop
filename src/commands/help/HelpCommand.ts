@@ -13,7 +13,7 @@ export class HelpCommand extends Command {
 
         if (params.length > this.numberOfParameters) return message.reply(this.usage);
 
-        if (params.length == 0) {
+        if (params.length === 0) {
             const commands = commandCollection.index();
             const reply = new MessageEmbed({
                 color: '#b967ff',

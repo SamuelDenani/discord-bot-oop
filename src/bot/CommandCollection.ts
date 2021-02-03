@@ -22,7 +22,6 @@ export default class CommandCollection {
     }
 
     public get (command: string) {
-        console.log(command,'-----', this.commands);
         return this.triggers.get(command);
     }
 
