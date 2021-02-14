@@ -32,8 +32,8 @@ export default class Carro extends Client {
 
         this.user.setPresence({
             activity: {
-                name: 'Carros 2!',
-                type: 'WATCHING'
+                name: ';help',
+                type: 'LISTENING'
             }
         });
     }
