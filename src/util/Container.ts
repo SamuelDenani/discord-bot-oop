@@ -4,13 +4,18 @@ import CommandCollection from '../bot/CommandCollection';
 import Config from '../config/Config';
 import DataBase from '../database/DataBase';
 
+export const config = new Config(); 
+
+export const db = new DataBase(config.REDIS_URL);
+
 import {
     HelpCommand,
     PingCommand
 } from '../commands/help';
 
 import {
-    GramaticadoCommand
+    GramaticadoCommand,
+    WordCommand
 } from '../commands/fun';
 
 const commands = [
@@ -20,11 +25,8 @@ const commands = [
 
     // Fun Commands
     new GramaticadoCommand,
+    new WordCommand,
 ]
-
-export const config = new Config(); 
-
-export const db = new DataBase(config.REDIS_URL);
 
 export const commandCollection = new CommandCollection(commands);
 const messageHandler = new MessageHandler(commandCollection);

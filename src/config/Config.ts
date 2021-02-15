@@ -8,8 +8,10 @@ export default class Config implements ConfigInterface {
     public token!: string;
     public REDIS_URL!: string;
 
+    public wordsApiKey!: string;
+
     private readonly CONFIG_PATH = path.join(process.cwd(), 'configs', 'configs.json');
-    private readonly JSON_KEYS = ['prefix', 'token', 'REDIS_URL'];
+    private readonly JSON_KEYS = ['prefix', 'token', 'REDIS_URL', 'wordsApiKey'];
 
     // I need to study more about this
     [index: string]: any;
