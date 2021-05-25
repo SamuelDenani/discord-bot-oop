@@ -15,13 +15,15 @@ import {
 
 import {
     GramaticadoCommand,
-    WordCommand
+    WordCommand,
+    CoinFlipCommand
 } from '../commands/fun';
 
 const commands = [
     // Help Commands
     new HelpCommand,
     new PingCommand,
+    new CoinFlipCommand,
 
     // Fun Commands
     new GramaticadoCommand,
