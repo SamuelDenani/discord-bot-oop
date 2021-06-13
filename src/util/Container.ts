@@ -16,18 +16,20 @@ import {
 import {
     GramaticadoCommand,
     WordCommand,
-    CoinFlipCommand
+    CoinFlipCommand,
+    TwitterCommand
 } from '../commands/fun';
 
 const commands = [
     // Help Commands
     new HelpCommand,
     new PingCommand,
-    new CoinFlipCommand,
-
+    
     // Fun Commands
     new GramaticadoCommand,
     new WordCommand,
+    new CoinFlipCommand,
+    new TwitterCommand
 ]
 
 export const commandCollection = new CommandCollection(commands);

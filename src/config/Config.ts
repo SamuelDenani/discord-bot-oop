@@ -10,10 +10,14 @@ export default class Config implements ConfigInterface {
 
     public wordsApiKey!: string;
 
-    private readonly CONFIG_PATH = path.join(process.cwd(), 'configs', 'configs.json');
-    private readonly JSON_KEYS = ['prefix', 'token', 'REDIS_URL', 'wordsApiKey'];
+    public twitterApiKey!: string;
+    public twitterApiSecret!: string;
+    public twitterAccessToken!: string;
+    public twitterAccessTokenSecret!: string;
 
-    // I need to study more about this
+    private readonly CONFIG_PATH = path.join(process.cwd(), 'configs', 'configs.json');
+    private readonly JSON_KEYS = ['prefix', 'token', 'REDIS_URL', 'wordsApiKey', 'twitterApiKey', 'twitterApiSecret', 'twitterAccessToken', 'twitterAccessTokenSecret'];
+
     [index: string]: any;
 
     constructor () {
