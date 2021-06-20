@@ -14,6 +14,7 @@ import {
 } from '../commands/help';
 
 import {
+    CoinsCommand,
     GramaticadoCommand,
     WordCommand
 } from '../commands/fun';
@@ -24,6 +25,7 @@ const commands = [
     new PingCommand,
 
     // Fun Commands
+    new CoinsCommand,
     new GramaticadoCommand,
     new WordCommand,
 ]
